@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="templates/main.xhtml">
+
+        <!-- Header -->
+        <ui:define name="title">Create User Page</ui:define>
+
+        <!-- Content -->
+        <ui:define name="content">
+            <h:form id="form">
+                <p:growl id="msgs" showDetail="true"/>
+
+                <!-- Create User Form -->
+                <div class="user-form">
+
+                    <!-- Name -->
+                    <p:outputLabel value="Name" for="name"/>
+                    <p:inputText id="name" value="#{createUser.name}"
+                                 required="true"
+                                 requiredMessage="Please, input a name"/>
+
+                    <!-- Surname -->
+                    <p:outputLabel value="Surname" for="surname"/>
+                    <p:inputText id="surname" value="#{createUser.surname}"
+                                 required="true"
+                                 requiredMessage="Please, input a surname"/>
+
+                    <!-- Number -->
+                    <p:outputLabel value="Phone Number" for="phoneNumber"/>
+                    <p:inputText id="phoneNumber" value="#{createUser.number}"
+                                 required="true"
+                                 requiredMessage="Please, input a phone number"/>
+
+                    <!-- eMail -->
+                    <p:outputLabel value="eMail" for="eMail"/>
+                    <p:inputText id="eMail" value="#{createUser.eMail}"
+                                 required="true"
+                                 requiredMessage="Please, input a eMail"/>
+
+                    <!-- Marriage-->
+                    <p:outputLabel for="console" value="" />
+                    <p:selectOneMenu id="console" value="#{createUser.status}" style="width:200px">
+                        <f:selectItem itemLabel="Select Your Status" itemValue="" />
+                        <f:selectItem itemLabel="Married" itemValue="Married" />
+                        <f:selectItem itemLabel="Not Married" itemValue="Not Married" />
+                    </p:selectOneMenu>
+
+                    <!-- Submit -->
+                    <p> <p:commandButton value="Create"
+                                     action="#{createUser.createUser}"
+                                     update="@form"
+                                     icon="fa fa-user"/> </p>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

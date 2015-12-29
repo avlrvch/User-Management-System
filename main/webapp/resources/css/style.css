@@ -1,0 +1,62 @@
+/**
+ * Common styles
+ *=======================================================*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+
+.ui-widget,.ui-widget .ui-widget {
+    font-size: 90% !important;
+}
+
+.centered {
+    text-align: center;
+}
+
+ .header, .footer {
+     position: absolute;
+     height: 100px;
+     width: 100%;
+     background-color: lightsteelblue;
+     text-align: center;
+ }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.content {
+    position: relative;
+    top: 100px;
+    padding: 10px;
+}
+
+ .header h1, .footer h1 {
+     position: relative;
+     top: 50%;
+     margin-top: -10px;
+     color: gray;
+ }
+
+ .create-user-btn {
+     margin-top: 20px;
+ }
+
+ .user-form {
+     position: relative;
+     height: 180px;
+     width: 400px;
+     margin: 30px auto;
+ }
+
+.user-form input[type="text"] {
+    width: 100%;
+    display: block;
+    margin: 0 0 20px 0;
+}
+

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="templates/main.xhtml">
+
+        <!-- Header -->
+        <ui:define name="title">Edit User Page</ui:define>
+
+        <!-- Content -->
+        <ui:define name="content">
+            <h:form id="form">
+                <p:growl id="msgs"/>
+
+                <!-- Edit User Form -->
+                <div class="user-form">
+
+                    <!-- Name -->
+                    <p:outputLabel value="Name" for="name"/>
+                    <p:inputText id="name" value="#{editUser.user.name}"
+                                 required="true"
+                                 requiredMessage="Please, input a name"/>
+
+                    <!-- Surname -->
+                    <p:outputLabel value="Surname" for="surname"/>
+                    <p:inputText id="surname" value="#{editUser.user.surname}"
+                                 required="true"
+                                 requiredMessage="Please, input a surname"/>
+
+                    <!-- Phone Number -->
+                    <p:outputLabel value="Phone Number" for="number"/>
+                    <p:inputText id="number" value="#{editUser.user.phoneNumber}"
+                                 required="true"
+                                 requiredMessage="Please, input a surname"/>
+
+                    <!-- eMail -->
+                    <p:outputLabel value="Surname" for="eMail"/>
+                    <p:inputText id="eMail" value="#{editUser.user.eMail}"
+                                 required="true"
+                                 requiredMessage="Please, input a surname"/>
+
+                    <p:outputLabel for="status" value="" />
+                    <p:selectOneMenu id="status" value="#{editUser.changedStatus}"  style="width:200px">
+                        <f:selectItem itemLabel="Select Your Status" itemValue="" />
+                        <f:selectItem itemLabel="Married" itemValue="Married" />
+                        <f:selectItem itemLabel="Not Married" itemValue="Not Married" />
+                    </p:selectOneMenu>
+
+                    <!-- Submit -->
+                    <p> <p:commandButton
+                            value="Update"
+                            action="#{editUser.updateUser}"
+                            update="@form"
+                            icon="fa fa-edit"/> </p>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

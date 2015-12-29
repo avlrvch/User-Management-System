@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="templates/main.xhtml">
+
+        <!-- Header -->
+        <ui:define name="title">Users Page</ui:define>
+
+        <!-- Content -->
+        <ui:define name="content">
+            <h:form id="form">
+                <p:growl id="msgs" showDetail="true"/>
+
+                <!-- Users Table -->
+                <p:dataTable id="usersTable" var="user" value="#{usersPage.users}">
+                    <p:column headerText="ID">#{user.id}</p:column>
+                    <p:column headerText="Name">#{user.name}</p:column>
+                    <p:column headerText="Surname">#{user.surname}</p:column>
+                    <p:column headerText="Phone number">#{user.phoneNumber}</p:column>
+                    <p:column headerText="eMail">#{user.eMail}</p:column>
+                    <p:column headerText="Status">#{user.status}</p:column>
+                    <p:column headerText="Edit" styleClass="centered">
+                        <p:button value="Edit"
+                                  outcome="edit-user"
+                                  includeViewParams="true"
+                                  update="usersTable"
+                                  icon="fa fa-edit">
+                            <f:param name="userId" value="#{user.id}"/>
+                        </p:button>
+                    </p:column>
+                    <p:column headerText="Delete" styleClass="centered">
+                        <p:commandButton
+                                value="Delete"
+                                action="#{usersPage.deleteUser(user)}"
+                                update="usersTable"
+                                icon="fa fa-minus"/>
+                    </p:column>
+                </p:dataTable>
+
+                <!-- Create User Button -->
+                <p:button value="Create User"
+                          outcome="create-user"
+                          icon="fa fa-plus"/>
+            </h:form>
+        </ui:define>
+</ui:composition>
+
+</html>
